@@ -2,14 +2,42 @@
 //header('Access-Control-Allow-Origin: *');
 
 
-//function custom_api_to_get_projects(){
-// register_rest_route( 'projects', '/all-projects', array(
-// 'methods' => 'GET',
-// 'callback' => 'custom_api_to_get_projects_callback'
-// ));
-//}
-//
-//add_action('rest_api_init', 'custom_api_to_get_projects');
+function load_more_projects()
+{
+  $next_page = $_POST['current_page'] + 1;
+    
+     $args = array(
+    'post_type' => 'project',
+    'post_status' => 'publish',
+    'orderby'   => 'date',
+    'order'     => 'ASC',
+    'posts_per_page' => 6,
+    'paged'     => $next_page
+    );
+
+$query = new WP_Query( $args );
+    
+
+  if ($query->have_posts()) :
+
+    ob_start();
+
+  while ($query->have_posts()) : $query->the_post();
+
+  get_template_part('template-parts/content');
+
+  endwhile;
+
+  wp_send_json_success(ob_get_clean());
+
+  else :
+
+    wp_send_json_error('No more posts!');
+
+  endif;
+}
+add_action('wp_ajax_load_more_projects', 'load_more_projects');
+add_action('wp_ajax_nopriv_load_more_projects', 'load_more_projects');
 
 
 
@@ -33,11 +61,6 @@ require_once get_theme_file_path('/inc/metaboxes/projects.php');
 //require_once get_theme_file_path('/inc/ajax-call-projects.php');
 
 
-//define( 'CS_ACTIVE_FRAMEWORK', false ); // default true
-//define( 'CS_ACTIVE_METABOX', true ); // default true
-//define( 'CS_ACTIVE_TAXONOMY', false ); // default true
-//define( 'CS_ACTIVE_SHORTCODE', false ); // default true
-//define( 'CS_ACTIVE_CUSTOMIZE', false ); // default true
 
 if ( site_url() == "http://mrashid.test/dev" ) {
 	define( "VERSION", time() );
@@ -114,6 +137,7 @@ function mRashid_assets(){
 	wp_enqueue_script( "isotope", get_theme_file_uri( "/assets/js/isotope.pkgd.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "owl-carousel", get_theme_file_uri( "/assets/js/owl.carousel.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "jquery-countTo", get_theme_file_uri( "/assets/js/jquery.countTo.js" ), array("jQuery"), VERSION, true );
+	//wp_enqueue_script( "axios", '//unpkg.com/axios/dist/axios.min.js', NULL, VERSION, true );
 	wp_enqueue_script( "main", get_theme_file_uri( "/assets/js/main.js" ), NULL, VERSION, true );
 	//wp_enqueue_script( "behance-api", get_theme_file_uri( "/assets/js/behance-api.js" ), array("jQuery"), VERSION, true );
 }

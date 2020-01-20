@@ -2,6 +2,7 @@
 /*********************************
 *** New Section Construction
 **********************************/
+global $wp_query;
 global $section_id;
 ?><div class="row">
     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
@@ -27,28 +28,24 @@ global $section_id;
         </ul>
     </div>
 </div>
-<div class="row isotope-grid"><?php 
+<div class="row isotope-grid" data-page="<?= get_query_var('paged') ? get_query_var('paged') : 1; ?>" data-max="<?= $wp_query->max_num_pages; ?>"><?php
 
-  
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     
     $args = array(
     'post_type' => 'project',
     'post_status' => 'publish',
     'orderby'   => 'date',
     'order'     => 'ASC',
-    'paged'     => $paged,
-    'posts_per_page' => 4
+    'posts_per_page' => 6
     );
 
 $the_query = new WP_Query( $args );
- 
 
 if ( $the_query->have_posts() ) {
-    
-    while ( $the_query->have_posts() ) {
+
+    while ( $the_query->have_posts() ) :
         $the_query->the_post();
-        
+
 $projectName = carbon_get_the_post_meta( 'project_name' );
 $projectUrl = carbon_get_the_post_meta( 'project_url' );
 $projectViews = carbon_get_the_post_meta( 'project_views' );
@@ -75,24 +72,12 @@ $projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
             </div>
         </div>
     </div>
-    <?php 
 
-}
-
-    if($the_query->post_count < 6){  ?>
-
-</div>
-<div class="row">
-    <div class="col-md-12 animate-box">
-        <p><a id="no-more-projects" class="btn btn-primary btn-lg btn-load-more"><?php echo __('No more projects') ?></a></p>
-    </div>
-</div>
+    <?php endwhile; ?>
 
 
-<?php 
-        
-    }else{
-        ?>
+
+
 
 </div>
 <div class="row">
@@ -102,7 +87,7 @@ $projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
 </div>
 
 <?php
-    }
+
     
     
     } else {
