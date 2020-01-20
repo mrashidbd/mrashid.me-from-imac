@@ -52,15 +52,15 @@ get_header(); ?>
 
         <?php 
 
-// if ( ! wp_next_scheduled( 'update_project_list' ) ) {
-// wp_schedule_event( time(), 'weekly', 'update_project_list' );
-//}
-//add_action( 'update_project_list', 'get_projects_from_behance_api' );
-// function get_projects_from_behance_api(){
-//
-// get_template_part("/inc/metaboxes/behance-data-input");
-//
-// }
+ if ( ! wp_next_scheduled( 'update_project_list' ) ) {
+ wp_schedule_event( time(), 'weekly', 'update_project_list' );
+ }
+ add_action( 'update_project_list', 'get_projects_from_behance_api' );
+ function get_projects_from_behance_api(){
+
+ get_template_part("/inc/metaboxes/behance-data-input");
+
+ }
 
          ?>
 

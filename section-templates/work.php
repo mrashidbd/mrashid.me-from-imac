@@ -27,7 +27,7 @@ global $section_id;
         </ul>
     </div>
 </div>
-<div class="row projects-container isotope-grid"><?php 
+<div class="row isotope-grid"><?php 
 
   
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -38,7 +38,7 @@ global $section_id;
     'orderby'   => 'date',
     'order'     => 'ASC',
     'paged'     => $paged,
-    'posts_per_page' => 6
+    'posts_per_page' => 4
     );
 
 $the_query = new WP_Query( $args );

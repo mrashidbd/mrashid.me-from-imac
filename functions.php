@@ -12,10 +12,8 @@
 //add_action('rest_api_init', 'custom_api_to_get_projects');
 
 
-//require_once get_theme_file_path('inc/carbon-metaboxes/carbon-init.php');
 
-//require_once get_theme_file_path('/inc/tgm/tgm.php');
-//require_once get_theme_file_path('/lib/csf/cs-framework.php');
+
 require_once get_theme_file_path('/inc/metaboxes/one-page.php');
 require_once get_theme_file_path('/inc/metaboxes/sections.php');
 require_once get_theme_file_path('/inc/metaboxes/section-slider.php');
@@ -27,9 +25,12 @@ require_once get_theme_file_path('/inc/metaboxes/section-education.php');
 require_once get_theme_file_path('/inc/metaboxes/section-experience.php');
 require_once get_theme_file_path('/inc/metaboxes/section-recent-projects.php');
 require_once get_theme_file_path('/inc/metaboxes/projects.php');
+
+
+//load more testing
+//=================
 //require_once get_theme_file_path('/inc/project-post.php');
 //require_once get_theme_file_path('/inc/ajax-call-projects.php');
-//get_template_part('/inc/metaboxes/behance-data-input.php');
 
 
 //define( 'CS_ACTIVE_FRAMEWORK', false ); // default true
@@ -117,10 +118,3 @@ function mRashid_assets(){
 	//wp_enqueue_script( "behance-api", get_theme_file_uri( "/assets/js/behance-api.js" ), array("jQuery"), VERSION, true );
 }
 add_action( "wp_enqueue_scripts", "mRashid_assets" );
-
-
-//function mRashid_codestar_init(){
-// CSFramework_Metabox::instance(array());
-//}
-
-//add_action('init', 'mRashid_codestar_init');
