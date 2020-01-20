@@ -1,0 +1,13 @@
+
+//API Credential
+UID:		    mamunurbd
+API-Secret-Key:	wxz4mUjYYscNDaiVXOsNLna6JjCsjw0i
+
+//User Details URI
+https://www.behance.net/v2/users/mamunurbd?api_key=wxz4mUjYYscNDaiVXOsNLna6JjCsjw0i
+
+//Mass Project URI
+http://www.behance.net/v2/users/mamunurbd/projects?api_key=wxz4mUjYYscNDaiVXOsNLna6JjCsjw0i
+
+//Project Specific URI
+http://www.behance.net/v2/projects/{project_id}?api_key={the_api_key}
