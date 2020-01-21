@@ -1,50 +1,57 @@
-//$queryUrl =   https://www.behance.net/v2/users/mamunurbd?api_key=wxz4mUjYYscNDaiVXOsNLna6JjCsjw0i
+//const axios = require(['axios']);
 
 
 
-// <div class="col-md-6 isotope-single apps">
-// <div class="project" style="background-image: url();">
-// <div class="desc">
-// <div class="con">
-// <h3></h3>
-// <span></span>
-// <p class="icon">
-// <span><i class="icon-share3"></i></span>
-// <span><i class="icon-eye"></i></span>
-// <span><i class="icon-heart"></i></span>
-// </p>
-// </div>
-// </div>
-// </div>
-// </div>
+const ajaxLoadMoreProject = () => {
+
+    const button = document.querySelector('#load-more-projects');
+
+    if (typeof (button) != 'undefined' && button != null) {
+
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let current_page = document.querySelector('.isotope-grid').dataset.page;
+            let max_pages = document.querySelector('.isotope-grid').dataset.max;
+
+            let params = new URLSearchParams();
+            params.append('action', 'load_more_projects');
+            params.append('current_page', current_page);
+            params.append('max_pages', max_pages);
+
+            axios.post('/wp-admin/admin-ajax.php', params)
+                .then(res => {
+
+                    let projectContainer = document.querySelector('.isotope-grid');
+
+                    projectContainer.innerHTML += res.data.data;
+
+                    let getUrl = window.location;
+                    let baseUrl = getUrl.protocol + "//" + getUrl.host + "/";
+
+                    window.history.pushState('', '', baseUrl + 'page/' + (parseInt(document.querySelector('.isotope-grid').dataset.page) + 1));
+
+                    console.log(parseInt(document.querySelector('.isotope-grid').dataset.page));
+
+                    document.querySelector('.isotope-grid').dataset.page++;
+
+                    if (document.querySelector('.isotope-grid').dataset.page == document.querySelector('.isotope-grid').dataset.max) {
+                        button.parentNode.removeChild(button);
+                    }
+
+                });
+
+        });
+
+    }
+
+}
 
 
-
-//http://www.behance.net/v2/users/mamunurbd/projects?api_key=wxz4mUjYYscNDaiVXOsNLna6JjCsjw0i
-
+jQuery(document).ready(function ($) {
 
 
-var apiURI = '//www.behance.net/v2/users/';
-var apiUserID = 'mamunurbd';
-var apiLinker = '/projects?api_key=';
-var apiSkey = 'wxz4mUjYYscNDaiVXOsNLna6JjCsjw0i';
+    ajaxLoadMoreProject();
 
 
-var queryUrl = apiURI + apiUserID + apiLinker + apiSkey;
-
-
-$(document).ready(function() {
-
-    $.getJSON(queryUrl, function (data) {
-        var project_str = "";
-        for (i = 0; i < data.projects.length; i++) {
-            obj = {};
-            obj = data.projects[i];
-
-            project_str += '<a class="tips more-info link" data-placement="bottom" href=" ' + obj.url + '  "><div class="span3 portfolioitem"><img src="' + obj.covers['404'] + '" /><div class="portfolioitem-hoverinfo"><h3>' + obj.name + '</h3></div></div></a>';
-
-        }
-
-        $('#portfolio-items').append(project_str);
-    });
 });

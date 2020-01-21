@@ -24,7 +24,7 @@ $query = new WP_Query( $args );
 
   while ($query->have_posts()) : $query->the_post();
 
-  get_template_part('template-parts/content');
+  get_template_part('template-parts/single-project-blocks');
 
   endwhile;
 
@@ -137,8 +137,8 @@ function mRashid_assets(){
 	wp_enqueue_script( "isotope", get_theme_file_uri( "/assets/js/isotope.pkgd.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "owl-carousel", get_theme_file_uri( "/assets/js/owl.carousel.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "jquery-countTo", get_theme_file_uri( "/assets/js/jquery.countTo.js" ), array("jQuery"), VERSION, true );
-	//wp_enqueue_script( "axios", '//unpkg.com/axios/dist/axios.min.js', NULL, VERSION, true );
+	wp_enqueue_script( 'axios', '//unpkg.com/axios/dist/axios.min.js' );
+	wp_enqueue_script( "behance-api", get_theme_file_uri( "/assets/js/behance-api.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "main", get_theme_file_uri( "/assets/js/main.js" ), NULL, VERSION, true );
-	//wp_enqueue_script( "behance-api", get_theme_file_uri( "/assets/js/behance-api.js" ), array("jQuery"), VERSION, true );
 }
 add_action( "wp_enqueue_scripts", "mRashid_assets" );
