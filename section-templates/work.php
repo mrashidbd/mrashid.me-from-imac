@@ -28,15 +28,14 @@ global $section_id;
         </ul>
     </div>
 </div>
-<div class="row isotope-grid" data-page="<?= get_query_var('paged') ? get_query_var('paged') : 1; ?>" data-max="<?= $wp_query->max_num_pages; ?>"><?php
+<div id="project-container" class="row isotope-grid" data-page="<?= get_query_var('paged') ? get_query_var('paged') : 1; ?>" data-max="<?= $wp_query->max_num_pages; ?>"><?php
 
     
     $args = array(
     'post_type' => 'project',
     'post_status' => 'publish',
     'orderby'   => 'date',
-    'order'     => 'ASC',
-    'posts_per_page' => 6
+    'order'     => 'ASC'
     );
 
 $the_query = new WP_Query( $args );
@@ -57,7 +56,7 @@ if ( $the_query->have_posts() ) {
 </div>
 <div class="row">
     <div class="col-md-12 animate-box">
-        <p><a id="load-more-projects" class="btn btn-primary btn-lg btn-load-more">Load more <i class="fa fa-refresh"></i></a></p>
+        <p><a href="<?php next_posts(get_max_pages()); ?>" id="load-more-projects" class="btn btn-primary btn-lg btn-load-more">Load more <i class="fa fa-refresh"></i></a></p>
     </div>
 </div>
 

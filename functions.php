@@ -1,47 +1,6 @@
 <?php
 //header('Access-Control-Allow-Origin: *');
 
-
-function load_more_projects()
-{
-  $next_page = $_POST['current_page'] + 1;
-    
-     $args = array(
-    'post_type' => 'project',
-    'post_status' => 'publish',
-    'orderby'   => 'date',
-    'order'     => 'ASC',
-    'posts_per_page' => 6,
-    'paged'     => $next_page
-    );
-
-$query = new WP_Query( $args );
-    
-
-  if ($query->have_posts()) :
-
-    ob_start();
-
-  while ($query->have_posts()) : $query->the_post();
-
-  get_template_part('template-parts/single-project-blocks');
-
-  endwhile;
-
-  wp_send_json_success(ob_get_clean());
-
-  else :
-
-    wp_send_json_error('No more posts!');
-
-  endif;
-}
-add_action('wp_ajax_load_more_projects', 'load_more_projects');
-add_action('wp_ajax_nopriv_load_more_projects', 'load_more_projects');
-
-
-
-
 require_once get_theme_file_path('/inc/metaboxes/one-page.php');
 require_once get_theme_file_path('/inc/metaboxes/sections.php');
 require_once get_theme_file_path('/inc/metaboxes/section-slider.php');
@@ -137,8 +96,13 @@ function mRashid_assets(){
 	wp_enqueue_script( "isotope", get_theme_file_uri( "/assets/js/isotope.pkgd.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "owl-carousel", get_theme_file_uri( "/assets/js/owl.carousel.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "jquery-countTo", get_theme_file_uri( "/assets/js/jquery.countTo.js" ), array("jQuery"), VERSION, true );
-	wp_enqueue_script( 'axios', '//unpkg.com/axios/dist/axios.min.js' );
-	wp_enqueue_script( "behance-api", get_theme_file_uri( "/assets/js/behance-api.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "main", get_theme_file_uri( "/assets/js/main.js" ), NULL, VERSION, true );
+	wp_enqueue_script( "mRashid-load-more", get_theme_file_uri( "/assets/js/loadmore.js" ), array("jQuery"), VERSION, true );
 }
 add_action( "wp_enqueue_scripts", "mRashid_assets" );
+
+
+function get_max_pages() {
+    global $wp_query;
+    return $wp_query->max_num_pages;
+}
