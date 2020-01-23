@@ -11,6 +11,7 @@ require_once get_theme_file_path('/inc/metaboxes/section-skills.php');
 require_once get_theme_file_path('/inc/metaboxes/section-education.php');
 require_once get_theme_file_path('/inc/metaboxes/section-experience.php');
 require_once get_theme_file_path('/inc/metaboxes/section-recent-projects.php');
+require_once get_theme_file_path('/inc/metaboxes/section-blog.php');
 require_once get_theme_file_path('/inc/metaboxes/projects.php');
 
 
@@ -97,7 +98,6 @@ function mRashid_assets(){
 	wp_enqueue_script( "owl-carousel", get_theme_file_uri( "/assets/js/owl.carousel.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "jquery-countTo", get_theme_file_uri( "/assets/js/jquery.countTo.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "main", get_theme_file_uri( "/assets/js/main.js" ), NULL, VERSION, true );
-	wp_enqueue_script( "mRashid-load-more", get_theme_file_uri( "/assets/js/loadmore.js" ), array("jQuery"), VERSION, true );
 }
 add_action( "wp_enqueue_scripts", "mRashid_assets" );
 
@@ -106,3 +106,51 @@ function get_max_pages() {
     global $wp_query;
     return $wp_query->max_num_pages;
 }
+
+function slice_word($text, $length)
+{
+    if(strlen($text) > $length) {
+        $text = substr($text, 0, strpos($text, ' ', $length));
+    }
+
+    return $text;
+}
+
+function slice_excerpt($str,$number)
+    {
+       $array_str = explode(" ", $str);
+       if(isset($array_str[$number]))
+       {
+         return implode(" ",array_slice($array_str, 0, $number));
+       }
+     return $str;
+    }
+
+
+
+
+function getPostViews($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+//    if($count==''){
+//        delete_post_meta($postID, $count_key);
+//        add_post_meta($postID, $count_key, '0');
+//        return "0 View";
+//    }
+    return $count;
+}
+
+function setPostViews($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+// Remove issues with prefetching adding extra views
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);

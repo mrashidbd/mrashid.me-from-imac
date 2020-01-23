@@ -19,7 +19,7 @@ get_header();
 
 <main id="site-content" role="main">
 
-	<?php
+    <?php
 
 	$archive_title    = '';
 	$archive_subtitle = '';
@@ -40,12 +40,12 @@ get_header();
 					'We found %s result for your search.',
 					'We found %s results for your search.',
 					$wp_query->found_posts,
-					'twentytwenty'
+					'mRashid'
 				),
 				number_format_i18n( $wp_query->found_posts )
 			);
 		} else {
-			$archive_subtitle = __( 'We could not find any results for your search. You can give it another try through the search form below.', 'twentytwenty' );
+			$archive_subtitle = __( 'We could not find any results for your search. You can give it another try through the search form below.', 'mRashid' );
 		}
 	} elseif ( ! is_home() ) {
 		$archive_title    = get_the_archive_title();
@@ -55,23 +55,23 @@ get_header();
 	if ( $archive_title || $archive_subtitle ) {
 		?>
 
-		<header class="archive-header has-text-align-center header-footer-group">
+    <header class="archive-header has-text-align-center header-footer-group">
 
-			<div class="archive-header-inner section-inner medium">
+        <div class="archive-header-inner section-inner medium">
 
-				<?php if ( $archive_title ) { ?>
-					<h1 class="archive-title"><?php echo wp_kses_post( $archive_title ); ?></h1>
-				<?php } ?>
+            <?php if ( $archive_title ) { ?>
+            <h1 class="archive-title"><?php echo wp_kses_post( $archive_title ); ?></h1>
+            <?php } ?>
 
-				<?php if ( $archive_subtitle ) { ?>
-					<div class="archive-subtitle section-inner thin max-percentage intro-text"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></div>
-				<?php } ?>
+            <?php if ( $archive_subtitle ) { ?>
+            <div class="archive-subtitle section-inner thin max-percentage intro-text"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></div>
+            <?php } ?>
 
-			</div><!-- .archive-header-inner -->
+        </div><!-- .archive-header-inner -->
 
-		</header><!-- .archive-header -->
+    </header><!-- .archive-header -->
 
-		<?php
+    <?php
 	}
 
 	if ( have_posts() ) {
@@ -91,23 +91,23 @@ get_header();
 	} elseif ( is_search() ) {
 		?>
 
-		<div class="no-search-results-form section-inner thin">
+    <div class="no-search-results-form section-inner thin">
 
-			<?php
+        <?php
 			get_search_form(
 				array(
-					'label' => __( 'search again', 'twentytwenty' ),
+					'label' => __( 'search again', 'mRashid' ),
 				)
 			);
 			?>
 
-		</div><!-- .no-search-results -->
+    </div><!-- .no-search-results -->
 
-		<?php
+    <?php
 	}
 	?>
 
-	<?php get_template_part( 'template-parts/pagination' ); ?>
+    <?php get_template_part( 'template-parts/pagination' ); ?>
 
 </main><!-- #site-content -->
 

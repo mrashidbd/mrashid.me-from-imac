@@ -13,6 +13,7 @@ get_header();
 
 		while ( have_posts() ) {
 			the_post();
+            setPostViews(get_the_ID());
 
 			get_template_part( 'template-parts/content', get_post_type() );
 		}
@@ -20,7 +21,7 @@ get_header();
 
 	?>
 </section>
-
+<a href="<?php echo get_post_type_archive_link('project'); ?>">All Projects</a>
 
 
 

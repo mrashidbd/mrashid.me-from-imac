@@ -321,9 +321,6 @@
         stickyFunction();
         owlCrouselFeatureSlide();
 
-        //Load More Projects
-        //ajaxLoadMoreProject();
-
     });
 
 
