@@ -10,25 +10,7 @@ global $section_id;
         <h2 class="colorlib-heading animate-box"><?php echo esc_html(carbon_get_post_meta($section_id, 'recent_work_title')); ?></h2>
     </div>
 </div>
-<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-    <div class="col-md-12">
-        <ul>
-            <li class="filterbtn active" data-filter="*"><?php echo esc_html( __('All') ); ?></li>
-
-            <?php 
-                
-                $dataFilter = carbon_get_post_meta( $section_id, 'recent_work_filter' );
-                
-                foreach ($dataFilter as $item): ?>
-
-            <li class="filterbtn" data-filter=".<?php echo esc_html( slugify( $item['filter_item'] ) ); ?>"><?php echo esc_html( $item['filter_item'] ); ?></li>
-
-            <?php endforeach; ?>
-
-        </ul>
-    </div>
-</div>
-<div id="project-container" class="row isotope-grid"><?php
+<div class="row"><?php
 
     $args = array(
     'post_type' => 'project',
@@ -41,7 +23,7 @@ global $section_id;
 $the_query = new WP_Query( $args );
 
 if ( $the_query->have_posts() ) {
-
+$i = 1;
     while ( $the_query->have_posts() ) :
         $the_query->the_post();
 
@@ -50,7 +32,7 @@ if ( $the_query->have_posts() ) {
     endwhile; ?>
 
 </div>
-<div class="row">
+<div class=" row">
     <div class="col-md-12 animate-box">
         <p><a href="http://mrashid.test/all-projects/" class="btn btn-primary btn-lg btn-load-more"><?php echo __('See All Projects', 'mRashid'); ?> <i class="fa fa-long-arrow-right"></i></a></p>
     </div>

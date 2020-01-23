@@ -16,14 +16,7 @@ function mRashid_section_metabox_recent_work(){
         ->add_fields(
         array(
             Field::make( 'text', 'recent_work_title', __('Recent Work Section Title') ),
-            Field::make( 'text', 'recent_work_subtitle', __('Recent Work Section Subtitle') ),
-            Field::make( 'complex', 'recent_work_filter', __('Add filter') )
-                ->set_max(10)
-                ->add_fields(
-                    array(
-                        Field::make('text', 'filter_item', __('Add filter item'))
-                    )
-                )
+            Field::make( 'text', 'recent_work_subtitle', __('Recent Work Section Subtitle') )
         )
     );
     

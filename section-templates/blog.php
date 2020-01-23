@@ -4,7 +4,7 @@ global $wp_query;
 ?>
 
 <div class="row">
-    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInTop">
         <span class="heading-meta"><?php echo esc_html(carbon_get_post_meta($section_id, 'blog_section_subtitle')); ?></span>
         <h2 class="colorlib-heading"><?php echo esc_html(carbon_get_post_meta($section_id, 'blog_section_title')); ?></h2>
     </div>

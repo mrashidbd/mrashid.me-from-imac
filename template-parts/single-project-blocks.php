@@ -6,10 +6,27 @@ $projectViews = carbon_get_the_post_meta( 'project_views' );
 $projectAprriciations = carbon_get_the_post_meta( 'project_apr' );
 $projectTypes = carbon_get_the_post_meta( 'project_type_group' );
 $projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
+
+
+global $i;
+
+if ($i > 6){
+    $i = 1;
+}
+
+$j = $i+2;
+$j = $j%2;
+$k = '';
+
+if($j===1){
+    $k = 'fadeInRight';
+}elseif($j===0){
+    $k = 'fadeInLeft';
+}
+
+
         ?>
-<div class="col-md-6<?php foreach($projectTypes as $projectType){
-                        echo ' ' . esc_html(slugify($projectType['project_type']));
-                    } ?>">
+<div class="col-md-6 animate-box" data-animate-effect="<?php echo $k; ?>">
     <div class="project" style="background-image: url(<?php echo esc_url($projectCoverImage); ?>);">
         <div class="desc">
             <div class="con">
@@ -26,3 +43,4 @@ $projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
         </div>
     </div>
 </div>
+<?php $i++;

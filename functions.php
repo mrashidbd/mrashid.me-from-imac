@@ -1,8 +1,15 @@
 <?php
-//header('Access-Control-Allow-Origin: *');
 
+//Includes TGM required plugins
+require_once get_theme_file_path('/lib/mrashid-required-plugins.php');
+
+//Includes metaboxes for one-page template
 require_once get_theme_file_path('/inc/metaboxes/one-page.php');
+
+//Includes metaboxes for 'page_section' post type
 require_once get_theme_file_path('/inc/metaboxes/sections.php');
+
+//Inlcudes metaboxes for each individual 'page_section' post
 require_once get_theme_file_path('/inc/metaboxes/section-slider.php');
 require_once get_theme_file_path('/inc/metaboxes/section-about.php');
 require_once get_theme_file_path('/inc/metaboxes/section-services.php');
@@ -12,13 +19,14 @@ require_once get_theme_file_path('/inc/metaboxes/section-education.php');
 require_once get_theme_file_path('/inc/metaboxes/section-experience.php');
 require_once get_theme_file_path('/inc/metaboxes/section-recent-projects.php');
 require_once get_theme_file_path('/inc/metaboxes/section-blog.php');
+require_once get_theme_file_path('/inc/metaboxes/section-contact.php');
+
+//Includes metaboxes for 'project' post type
 require_once get_theme_file_path('/inc/metaboxes/projects.php');
 
 
-//load more testing
-//=================
-//require_once get_theme_file_path('/inc/project-post.php');
-//require_once get_theme_file_path('/inc/ajax-call-projects.php');
+//Carbon Fields Theme Options
+require_once get_theme_file_path('/inc/theme-options/main.php');
 
 
 
@@ -44,6 +52,7 @@ function mRashid_theme_setup(){
     add_theme_support( 'post-formats', array( 'image', 'gallery', 'quote', 'audio', 'video', 'link' ) );
     add_theme_support( 'title-tag' );
     add_editor_style('assets/css/editor-style.css');
+    
     require_once( get_theme_file_path('vendor/autoload.php' ));
 	\Carbon_Fields\Carbon_Fields::boot();
 }
@@ -71,12 +80,11 @@ function mRashid_assets(){
 	// Including the stylesheets
 
 	wp_enqueue_style( "animate", get_theme_file_uri("/assets/css/animate.css"), NULL, VERSION );
-	//wp_enqueue_style( "icomoon", get_theme_file_uri("/assets/css/icomoon.css"), NULL, VERSION  );
 	wp_enqueue_style( "font-awesome", get_theme_file_uri("/assets/css/font-awesome.min.css"), NULL, VERSION  );
 	wp_enqueue_style( "bootstrap", get_theme_file_uri("/assets/css/bootstrap.css"), NULL, VERSION  );
 	wp_enqueue_style( "flexslider", get_theme_file_uri("/assets/css/flexslider.css"), NULL, VERSION  );
-	wp_enqueue_style( "owl-carousel", get_theme_file_uri("/assets/css/owl.carousel.min.css"), NULL, VERSION  );
-	wp_enqueue_style( "owl-theme", get_theme_file_uri("/assets/css/owl.theme.default.min.css"), NULL, VERSION  );
+	//wp_enqueue_style( "owl-carousel", get_theme_file_uri("/assets/css/owl.carousel.min.css"), NULL, VERSION  );
+	//wp_enqueue_style( "owl-theme", get_theme_file_uri("/assets/css/owl.theme.default.min.css"), NULL, VERSION  );
 	wp_enqueue_style( "main-style", get_theme_file_uri("/assets/css/style.css"), NULL, VERSION  );
 	wp_enqueue_style( "mRashid-main-stylesheet", get_stylesheet_uri());
 
@@ -94,8 +102,8 @@ function mRashid_assets(){
 	wp_enqueue_script( "bootstrap-js", get_theme_file_uri( "/assets/js/bootstrap.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "jquery-waypoints", get_theme_file_uri( "/assets/js/jquery.waypoints.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "jquery-flexslider", get_theme_file_uri( "/assets/js/jquery.flexslider-min.js" ), array("jQuery"), VERSION, true );
-	wp_enqueue_script( "isotope", get_theme_file_uri( "/assets/js/isotope.pkgd.min.js" ), array("jQuery"), VERSION, true );
-	wp_enqueue_script( "owl-carousel", get_theme_file_uri( "/assets/js/owl.carousel.min.js" ), array("jQuery"), VERSION, true );
+	//wp_enqueue_script( "isotope", get_theme_file_uri( "/assets/js/isotope.pkgd.min.js" ), array("jQuery"), VERSION, true );
+	//wp_enqueue_script( "owl-carousel", get_theme_file_uri( "/assets/js/owl.carousel.min.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "jquery-countTo", get_theme_file_uri( "/assets/js/jquery.countTo.js" ), array("jQuery"), VERSION, true );
 	wp_enqueue_script( "main", get_theme_file_uri( "/assets/js/main.js" ), NULL, VERSION, true );
 }
