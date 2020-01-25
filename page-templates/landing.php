@@ -7,7 +7,7 @@ get_header(); ?>
 <section id="colorlib-hero" class="js-fullheight" data-section="home" style="background: #fff url(<?php echo get_template_directory_uri(); ?>/assets/images/loader.gif) no-repeat center center;">
     <div class="flexslider js-fullheight">
         <ul class="slides">
-            <?php $section_id = 17; get_template_part("section-templates/slider");?>
+            <?php $section_id = 6; get_template_part("section-templates/slider");?>
         </ul>
     </div>
 </section>
@@ -16,7 +16,7 @@ get_header(); ?>
     <div class="colorlib-narrow-content">
         <div class="row">
             <div class="col-md-12">
-                <?php $section_id = 24; get_template_part("section-templates/about"); ?>
+                <?php $section_id = 19; get_template_part("section-templates/about"); ?>
             </div>
         </div>
     </div>
