@@ -48,6 +48,9 @@ get_header(); ?>
 
 <section class="colorlib-work" data-section="work">
     <div class="colorlib-narrow-content">
+
+        <a href="<?php echo get_post_type_archive_link('project'); ?>">Project</a>
+
         <?php $section_id = 821; get_template_part("section-templates/work"); ?>
 
         <?php 
