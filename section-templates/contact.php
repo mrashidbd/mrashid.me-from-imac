@@ -53,25 +53,3 @@ global $section_id;
         </div>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-12">
-        <h4><?php echo esc_html(carbon_get_post_meta($section_id, 'social_link_title')); ?></h4>
-
-        <?php
-        
-        $social_links = carbon_get_post_meta($section_id, 'social_links');
-
-        ?>
-
-        <div class="social-links">
-            <ul>
-                <?php foreach($social_links as $social_link):                
-                ?>
-                <li><a href="<?php echo $social_link['social_link']; ?>"><i class="fa <?php echo $social_link['icon_class']; ?>"></i></a></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-
-    </div>
-</div>

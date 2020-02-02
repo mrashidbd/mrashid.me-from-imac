@@ -7,7 +7,7 @@ get_header(); ?>
 <section id="colorlib-hero" class="js-fullheight" data-section="home" style="background: #fff url(<?php echo get_template_directory_uri(); ?>/assets/images/loader.gif) no-repeat center center;">
     <div class="flexslider js-fullheight">
         <ul class="slides">
-            <?php $section_id = 6; get_template_part("section-templates/slider");?>
+            <?php $section_id = 56; get_template_part("section-templates/slider");?>
         </ul>
     </div>
 </section>
@@ -16,7 +16,7 @@ get_header(); ?>
     <div class="colorlib-narrow-content">
         <div class="row">
             <div class="col-md-12">
-                <?php $section_id = 19; get_template_part("section-templates/about"); ?>
+                <?php $section_id = 64; get_template_part("section-templates/about"); ?>
             </div>
         </div>
     </div>
@@ -24,25 +24,25 @@ get_header(); ?>
 
 <section class="colorlib-services" data-section="services">
     <div class="colorlib-narrow-content">
-        <?php $section_id = 27; get_template_part("section-templates/services"); ?>
+        <?php $section_id = 67; get_template_part("section-templates/services"); ?>
     </div>
 </section>
 
-<?php $section_id = 31; get_template_part("section-templates/counter"); ?>
+<?php $section_id = 72; get_template_part("section-templates/counter"); ?>
 
 <section class="colorlib-skills" data-section="skills">
-    <?php $section_id = 36; get_template_part("section-templates/skills"); ?>
+    <?php $section_id = 77; get_template_part("section-templates/skills"); ?>
 </section>
 
 <section class="colorlib-education" data-section="education">
     <div class="colorlib-narrow-content">
-        <?php $section_id = 39; get_template_part("section-templates/education"); ?>
+        <?php $section_id = 80; get_template_part("section-templates/education"); ?>
     </div>
 </section>
 
 <section class="colorlib-experience" data-section="experience">
     <div class="colorlib-narrow-content">
-        <?php $section_id = 42; get_template_part("section-templates/experience"); ?>
+        <?php $section_id = 83; get_template_part("section-templates/experience"); ?>
     </div>
 </section>
 
@@ -51,7 +51,7 @@ get_header(); ?>
 
         <a href="<?php echo get_post_type_archive_link('project'); ?>">Project</a>
 
-        <?php $section_id = 821; get_template_part("section-templates/work"); ?>
+        <?php $section_id = 91; get_template_part("section-templates/work"); ?>
 
         <?php 
 //pulling the data from behance api and storing them into our database
@@ -71,14 +71,14 @@ get_header(); ?>
 <section class="colorlib-blog" data-section="blog">
     <div class="colorlib-narrow-content">
 
-        <?php $section_id = 850; get_template_part("section-templates/blog"); ?>
+        <?php $section_id = 96; get_template_part("section-templates/blog"); ?>
 
     </div>
 </section>
 
 <section class="colorlib-contact" data-section="contact">
     <div class="colorlib-narrow-content">
-        <?php $section_id = 45; get_template_part("section-templates/contact"); ?>
+        <?php $section_id = 99; get_template_part("section-templates/contact"); ?>
     </div>
 </section>
 
