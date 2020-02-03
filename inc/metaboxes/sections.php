@@ -10,7 +10,7 @@ function mRashid_section_metaboxes() {
 	         ->where( 'post_type', '=', 'page_section' )
 	         ->add_fields(
 	         	array(
-		            Field::make( 'select', 'selected_page_section', __( 'Page Section' ) )
+		            Field::make( 'select', 'selected_page_section', __( 'Page Section' ) 
 		                 ->add_options( 
                              array(
                                 'slider'=>__('Slider', 'mRashid'),

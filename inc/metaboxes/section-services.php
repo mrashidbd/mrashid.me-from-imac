@@ -32,4 +32,9 @@ function mRashid_section_metabox_service() {
     
 }
 
+    
+//Field::make( 'html', 'select_icon', __( 'Select Icon' ) )
+//    ->set_html( $html )
+
+
 add_action( 'carbon_fields_register_fields', 'mRashid_section_metabox_service' );
