@@ -91,7 +91,7 @@ figure figcaption {
 }
 
 #colorlib-aside {
-    padding-top: 3em;
+    padding-top: 1em;
     padding-bottom: 40px;
     float: left;
     width: 300px;
@@ -101,6 +101,10 @@ figure figcaption {
     background: #f2f3f7;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+}
+
+#colorlib-aside .text-center {
+    margin-bottom: 1.5em;
 }
 
 @media screen and (max-width: 768px) {
@@ -116,7 +120,7 @@ figure figcaption {
     width: 150px;
     height: 150px;
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-radius: 50%;
 }
 
@@ -1908,4 +1912,39 @@ body.offcanvas .colorlib-nav-toggle {
 
 .js .animate-box {
     opacity: 0;
+}
+
+span.job-tag {
+    font-size: 14px;
+    display: block;
+    line-height: 1.7em;
+}
+
+
+/** Custom Styling for Aside **/
+
+.social-widget h4 {
+    font-size: 16px;
+    letter-spacing: .1em;
+    padding: 12px;
+    font-weight: bold;
+    color: #2c98f0;
+    margin-bottom: 10px;
+}
+
+#colorlib-aside .colorlib-footer .social-widget ul li a {
+    color: #3a3b3c;
+    padding: 5px 10px;
+    margin: 0 2px;
+    background-color: #ffffff;
+    font-size: 18px;
+}
+
+#colorlib-aside .colorlib-footer .social-widget ul li a:hover {
+    color: #ffffff;
+    background-color: #3a3b3c;
+}
+
+#colorlib-aside .colorlib-footer p {
+    margin: 1.2em 0;
 }
