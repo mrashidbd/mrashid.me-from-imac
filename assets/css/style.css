@@ -1948,3 +1948,14 @@ span.job-tag {
 #colorlib-aside .colorlib-footer p {
     margin: 1.2em 0;
 }
+
+
+
+
+
+
+.blog-thumb-container {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+}

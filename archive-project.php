@@ -2,10 +2,17 @@
 get_header();
 ?>
 
+<div class="colorlib-narrow-content">
+    <div class="row">
+        <div class="mrashid-projects">
+            <div class="col-md-12">
+                <center>
+                    <h2><?php echo __('Project Archive', 'mRashid'); ?></h2>
+                    <p><?php echo __('Browse all the projects I have done so far.', 'mRashid'); ?></p>
+                </center>
+            </div>
 
-<div class="row">
-
-    <?php 
+            <?php 
 
 if(have_posts()) : while(have_posts()) : the_post();
 
@@ -18,31 +25,34 @@ $projectTypes = carbon_get_the_post_meta( 'project_type_group' );
 $projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
 
         ?>
-    <div class="col-md-6<?php foreach($projectTypes as $projectType){
+            <div class="col-md-6<?php foreach($projectTypes as $projectType){
                         echo ' ' . esc_html(slugify($projectType['project_type']));
                     } ?>">
-        <div class="project" style="background-image: url(<?php echo esc_url($projectCoverImage); ?>);">
-            <div class="desc">
-                <div class="con">
-                    <h3><a href="<?php the_permalink(); ?>"><?php echo esc_html( $projectName ); ?></a></h3>
-                    <span><?php foreach($projectTypes as $projectType){
+                <div class="project" style="background-image: url(<?php echo esc_url($projectCoverImage); ?>);">
+                    <div class="desc">
+                        <div class="con">
+                            <h3><a href="<?php the_permalink(); ?>"><?php echo esc_html( $projectName ); ?></a></h3>
+                            <span><?php foreach($projectTypes as $projectType){
                         echo esc_html($projectType['project_type']) . ' | ';
                     } ?></span>
-                    <p class="icon">
-                        <span><a href="<?php echo esc_url( $projectUrl ); ?>" target="_blank"><i class="fa fa-share-alt"></i></a></span>
-                        <span><i class="fa fa-eye"></i> <?php echo esc_html( $projectViews ); ?></span>
-                        <span><i class="fa fa-thumbs-up"></i> <?php echo esc_html( $projectAprriciations ); ?></span>
-                    </p>
+                            <p class="icon">
+                                <span><a href="<?php echo esc_url( $projectUrl ); ?>" target="_blank"><i class="fa fa-share-alt"></i></a></span>
+                                <span><i class="fa fa-eye"></i> <?php echo esc_html( $projectViews ); ?></span>
+                                <span><i class="fa fa-thumbs-up"></i> <?php echo esc_html( $projectAprriciations ); ?></span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <?php 
+            <?php 
 
 endwhile;
     echo '</div>';
 echo paginate_links();
-endif;
+endif; ?>
+        </div>
+    </div>
+    <?php
 get_footer();
 
 
@@ -71,4 +81,4 @@ function slugify($text)
   }
 
   return $text;
-}
+} ?>

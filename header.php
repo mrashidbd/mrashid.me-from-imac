@@ -54,7 +54,7 @@ $siteLogoUrl = wp_get_attachment_image_src( $siteLogo, 'thumbnail');
                     <div class="author-img" style="background-image: url(<?php echo esc_url( $siteLogoUrl[0] ); ?>);"></div>
                     <h1 id="colorlib-logo"><a href="index.html"><?php echo esc_html( $siteName ); ?></a></h1>
                     <?php foreach($jobEntries as $jobEntry) : ?>
-                    <span class="job-tag"><?php echo esc_html( $jobEntry['job_position'] ) . ' at '; ?><a href="<?php echo esc_url( $jobEntry['job_link'] ); ?>"><?php echo esc_html( $jobEntry['job_provider'] ); ?></a></span>
+                    <span class="job-tag"><?php echo esc_html( $jobEntry['job_position'] ) . ' at '; ?><a href="<?php echo esc_url( $jobEntry['job_link'] ); ?>" target="_blank"><?php echo esc_html( $jobEntry['job_provider'] ); ?></a></span>
                     <?php endforeach; ?>
                 </div>
                 <nav id="colorlib-main-menu" role="navigation" class="navbar">
