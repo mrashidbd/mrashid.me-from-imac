@@ -1959,3 +1959,20 @@ span.job-tag {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+nav#colorlib-sub-menu div#submenu-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav#colorlib-sub-menu div#submenu-navbar ul li {
+    display: block;
+    text-align: center;
+}
+
+nav#colorlib-sub-menu div#submenu-navbar ul li a {
+    display: inline-block;
+    padding: 5px;
+    color: rgba(0, 0, 0, 0.7);
+}

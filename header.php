@@ -52,15 +52,18 @@ $siteLogoUrl = wp_get_attachment_image_src( $siteLogo, 'thumbnail');
             <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
                 <div class="text-center">
                     <div class="author-img" style="background-image: url(<?php echo esc_url( $siteLogoUrl[0] ); ?>);"></div>
-                    <h1 id="colorlib-logo"><a href="index.html"><?php echo esc_html( $siteName ); ?></a></h1>
+                    <h1 id="colorlib-logo"><a href="<?php echo site_url(); ?>"><?php echo esc_html( $siteName ); ?></a></h1>
                     <?php foreach($jobEntries as $jobEntry) : ?>
                     <span class="job-tag"><?php echo esc_html( $jobEntry['job_position'] ) . ' at '; ?><a href="<?php echo esc_url( $jobEntry['job_link'] ); ?>" target="_blank"><?php echo esc_html( $jobEntry['job_provider'] ); ?></a></span>
                     <?php endforeach; ?>
                 </div>
+                <?php
+                $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+                if(is_front_page()) : ?>
                 <nav id="colorlib-main-menu" role="navigation" class="navbar">
                     <div id="navbar" class="collapse">
                         <ul>
-                            <li class="active"><a href="#" data-nav-section="home">Home</a></li>
+                            <li class="active"><a href="<?php echo site_url(); ?>" data-nav-section="home">Home</a></li>
                             <li><a href="#" data-nav-section="about">About</a></li>
                             <li><a href="#" data-nav-section="services">Services</a></li>
                             <li><a href="#" data-nav-section="skills">Skills</a></li>
@@ -72,6 +75,18 @@ $siteLogoUrl = wp_get_attachment_image_src( $siteLogo, 'thumbnail');
                         </ul>
                     </div>
                 </nav>
+                <?php elseif (strpos($url,'project') !== false) : ?>
+
+                <nav id="colorlib-sub-menu">
+                    <div id="submenu-navbar">
+                        <ul>
+                            <li><a href="<?php echo site_url(); ?>" data-nav-section="home">Home</a></li>
+                            <li><a href="<?php echo get_post_type_archive_link('project'); ?>">All Projects</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <?php endif; ?>
 
                 <div class="colorlib-footer">
                     <?php 
