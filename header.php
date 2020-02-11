@@ -75,7 +75,8 @@ $siteLogoUrl = wp_get_attachment_image_src( $siteLogo, 'thumbnail');
                         </ul>
                     </div>
                 </nav>
-                <?php elseif (strpos($url,'project') !== false) : ?>
+
+                <?php elseif (is_singular( $post_types = 'project') || (strpos($url,'project') !== false)) : ?>
 
                 <nav id="colorlib-sub-menu">
                     <div id="submenu-navbar">

@@ -34,7 +34,7 @@ $i = 1;
 </div>
 <div class=" row">
     <div class="col-md-12 animate-box">
-        <p><a href="http://mrashid.test/all-projects/" class="btn btn-primary btn-lg btn-load-more"><?php echo __('See All Projects', 'mRashid'); ?> <i class="fa fa-long-arrow-right"></i></a></p>
+        <p><a href="<?php echo get_post_type_archive_link('project'); ?>" class="btn btn-primary btn-lg btn-load-more"><?php echo __('See All Projects', 'mRashid'); ?> <i class="fa fa-long-arrow-right"></i></a></p>
     </div>
 </div>
 

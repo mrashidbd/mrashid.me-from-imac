@@ -275,23 +275,23 @@
 
     };
 
-    //    var owlCrouselFeatureSlide = function () {
-    //        $('.owl-carousel').owlCarousel({
-    //            animateOut: 'fadeOut',
-    //            animateIn: 'fadeIn',
-    //            autoplay: true,
-    //            loop: true,
-    //            margin: 0,
-    //            nav: true,
-    //            dots: false,
-    //            autoHeight: true,
-    //            items: 1,
-    //            navText: [
-    //		      "<i class='icon-arrow-left3 owl-direction'></i>",
-    //		      "<i class='icon-arrow-right3 owl-direction'></i>"
-    //	     	]
-    //        })
-    //    };
+    var owlCrouselFeatureSlide = function () {
+        $('.project-owl-carousel').owlCarousel({
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            autoplay: true,
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: false,
+            autoHeight: true,
+            items: 1,
+            navText: [
+    		      "<i class='fa fa-arrow-left owl-direction'></i>",
+    		      "<i class='fa fa-arrow-right owl-direction'></i>"
+    	     	]
+        })
+    };
 
 
 
@@ -319,7 +319,7 @@
         mobileMenuOutsideClick();
         sliderMain();
         stickyFunction();
-        //owlCrouselFeatureSlide();
+        owlCrouselFeatureSlide();
 
     });
 

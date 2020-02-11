@@ -9,22 +9,31 @@ get_header();
 
 if(have_posts()) : while(have_posts()) : the_post();
             $postImage = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+            $projectName = carbon_get_the_post_meta( 'project_name' );
+            $projectUrl = carbon_get_the_post_meta( 'project_url' );
+            $projectViews = carbon_get_the_post_meta( 'project_views' );
+            $projectAprriciations = carbon_get_the_post_meta( 'project_apr' );
+            $projectTypes = carbon_get_the_post_meta( 'project_type_group' );
+            $projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
+            $imageGallery = carbon_get_the_post_meta( 'project_image_gallery' );
+
 ?>
             <div class="col-md-12">
-                <div class="post-details">
+                <div class="project-details">
                     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                     <!-- <h3><a href="<?php //the_permalink(); ?>"><?php //echo esc_html( $projectName ); ?></a></h3>-->
                     <?php the_content(); ?>
                 </div>
+
+                <div class="project-owl-carousel">
+                    <?php foreach ($imageGallery as $image): ?>
+                    <img src="<?php echo $image['project_image_cropped']; ?>" alt="">
+                    <?php endforeach; ?>
+                </div>
+
+
             </div>
             <?php 
-$projectName = carbon_get_the_post_meta( 'project_name' );
-$projectUrl = carbon_get_the_post_meta( 'project_url' );
-$projectViews = carbon_get_the_post_meta( 'project_views' );
-$projectAprriciations = carbon_get_the_post_meta( 'project_apr' );
-$projectTypes = carbon_get_the_post_meta( 'project_type_group' );
-$projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
-$imageGallery = carbon_get_the_post_meta( 'project_image_gallery' );
 
 
 ?>

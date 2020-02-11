@@ -16,7 +16,8 @@ function mRashid_section_metabox_recent_work(){
         ->add_fields(
         array(
             Field::make( 'text', 'recent_work_title', __('Recent Work Section Title') ),
-            Field::make( 'text', 'recent_work_subtitle', __('Recent Work Section Subtitle') )
+            Field::make( 'text', 'recent_work_subtitle', __('Recent Work Section Subtitle') ),
+            Field::make( 'text', 'work_archive_link', __('Recent Work Archive Link') )
         )
     );
     
