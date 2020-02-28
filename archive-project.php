@@ -45,14 +45,21 @@ $projectCoverImage = carbon_get_the_post_meta( 'project_cover_image' );
                 </div>
             </div>
             <?php 
-
 endwhile;
-    echo '</div>';
-echo paginate_links();
+?>
+            <div class="col-md-12">
+                <div class="mrashid-pagination">
+                    <center>
+                        <?php echo paginate_links(); ?>
+                    </center>
+                </div>
+            </div>
+            <?php
 endif; ?>
         </div>
     </div>
-    <?php
+</div>
+<?php
 get_footer();
 
 

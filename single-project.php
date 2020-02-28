@@ -20,7 +20,7 @@ if(have_posts()) : while(have_posts()) : the_post();
 ?>
             <div class="col-md-12">
                 <div class="project-details">
-                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                    <h3><?php the_title(); ?></h3>
                     <!-- <h3><a href="<?php //the_permalink(); ?>"><?php //echo esc_html( $projectName ); ?></a></h3>-->
                     <?php the_content(); ?>
                 </div>

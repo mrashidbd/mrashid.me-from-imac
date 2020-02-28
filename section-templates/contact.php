@@ -39,7 +39,7 @@ global $section_id;
                 <i class="fa fa-phone"></i>
             </div>
             <div class="colorlib-text">
-                <p><a href="tel://"><?php echo esc_html(carbon_get_post_meta($section_id, 'contact_phone')); ?></a></p>
+                <p><a href="tel://<?php echo esc_html(carbon_get_post_meta($section_id, 'contact_phone')); ?>"><?php echo esc_html(carbon_get_post_meta($section_id, 'contact_phone')); ?></a></p>
             </div>
         </div>
     </div>
