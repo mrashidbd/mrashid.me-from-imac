@@ -2015,3 +2015,53 @@ nav#colorlib-sub-menu div#submenu-navbar ul li a {
     color: #ffffff;
     font-size: 16px;
 }
+
+.project-images img {
+    max-width: 795px;
+    min-width: 795px;
+}
+
+.project-details span {
+    display: inline;
+    background: #dedede;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.project-details p.icon span {
+    clear: both;
+    background: none;
+    margin-right: 5px;
+    margin-top: 15px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #ddeedd;
+}
+
+.project-details p.icon span:hover {
+    background: #dedede;
+}
+
+.project-details span:hover {
+    background: #ddeedd;
+    cursor: pointer;
+}
+
+.project-details {
+    margin: 25px 0;
+}
+
+.project-details h3 {
+    background: #ddeedd;
+    padding: 13px;
+    color: #2d2e2f;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+a.btn.btn-primary.btn-lg.btn-load-more {
+    margin: 25px 0;
+}

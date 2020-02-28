@@ -101,7 +101,7 @@ $siteLogoUrl = wp_get_attachment_image_src( $siteLogo, 'thumbnail');
 
                                 <?php foreach($socialLinks as $socialLink) : ?>
 
-                                <li><a href="<?php echo $socialLink['social_link']; ?>"><i class="fa <?php echo $socialLink['icon_class']; ?>"></i></a></li>
+                                <li><a target="_blank" href="<?php echo $socialLink['social_link']; ?>"><i class="fa <?php echo $socialLink['icon_class']; ?>"></i></a></li>
 
                                 <?php endforeach; ?>
 

@@ -21,44 +21,30 @@ if(have_posts()) : while(have_posts()) : the_post();
             <div class="col-md-12">
                 <div class="project-details">
                     <h3><?php the_title(); ?></h3>
-                    <!-- <h3><a href="<?php //the_permalink(); ?>"><?php //echo esc_html( $projectName ); ?></a></h3>-->
                     <?php the_content(); ?>
-                </div>
-
-                <div class="project-owl-carousel">
-                    <?php foreach ($imageGallery as $image): ?>
-                    <img src="<?php echo $image['project_image_cropped']; ?>" alt="">
-                    <?php endforeach; ?>
-                </div>
-
-
-            </div>
-            <?php 
-
-
-?>
-            <div class="col-md-12">
-                <div class="project" style="background-image: url(<?php echo esc_url($projectCoverImage); ?>);">
-                    <div class="desc">
-                        <div class="con">
-
-                            <span><?php foreach($projectTypes as $projectType){
-                        echo esc_html($projectType['project_type']) . ' | ';
-                    } ?></span>
-
-                        </div>
-                    </div>
+                    <?php foreach($projectTypes as $projectType){
+                        echo '<span>' . esc_html($projectType['project_type']) . '</span>';
+                    } ?>
                     <p class="icon">
                         <span><a href="<?php echo esc_url( $projectUrl ); ?>" target="_blank"><i class="fa fa-share-alt"></i></a></span>
                         <span><i class="fa fa-eye"></i> <?php echo esc_html( $projectViews ); ?></span>
                         <span><i class="fa fa-thumbs-up"></i> <?php echo esc_html( $projectAprriciations ); ?></span>
                     </p>
                 </div>
+                <div class="project-images">
+                    <?php foreach ($imageGallery as $image): ?>
+                    <img src="<?php echo $image['project_image_cropped']; ?>" alt="">
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class=" row">
+                <div class="col-md-12 animate-box">
+                    <p><a href="<?php echo get_post_type_archive_link('project'); ?>" class="btn btn-primary btn-lg btn-load-more"><?php echo __('See All Projects', 'mRashid'); ?> <i class="fa fa-long-arrow-right"></i></a></p>
+                </div>
             </div>
 
             <?php 
             endwhile;
-            echo paginate_links();
             endif;
             ?>
         </div>
